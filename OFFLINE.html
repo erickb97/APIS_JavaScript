@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OFFLINE</title>
+
+    <script>
+        function updateIndicator() {
+            var indicator = document.getElementById('indicator');
+            indicator.textContent = navigator.onLine ? 'online' : 'offline';
+        }
+
+        document.addEventListener('offline', function(e) { alert('Offline'); });
+        document.addEventListener('online', function(e) { alert('Online') });
+    </script>
+</head>
+<body>
+
+    <body ononline="alert('Online');" onoffline="alert('Offline');" >
+    <p>La red está <span id="indicator">(estado)</span>
+    </body>
+</body>
+</html>

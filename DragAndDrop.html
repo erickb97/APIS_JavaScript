@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="eS">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    #div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+
+    }
+    #div3, #div2 {
+        float: left;
+        width: 100px;
+        height: 35px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+    </style>
+    <script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        let data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+    </script>
+</head>
+<body>
+    <p>Elemento Drag and Drop para arrastrar y soltar un elemento dentro del cuadro:</p>
+
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br>
+
+    <img id="drag1" src="https://umg.edu.gt/50/img/logo-color.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+
+    <h2>Drag and Drop Ejemplo 2</h2>
+    <p>Drag the image back and forth between the two div elements.</p>
+
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="https://umg.edu.gt/wp-content/uploads/2016/01/logo-1.png" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+    </div>
+
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</body>
+</html>
